@@ -1,1 +1,3 @@
-console.log("fugafuga")
+function buttonClicked() {
+    console.log("hogehoge")
+}
