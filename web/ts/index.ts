@@ -1,4 +1,6 @@
-import { JSNativeInterface } from './JSNativeInterface'
+import { JSNativeInterfaceObject, JSNativeInterfaceAndroid, JSNativeInterfaceIOS } from './JSNativeInterface'
 
-let ios = new JSNativeInterface()
-ios.send("hoge", {"fuga": "nyassu"})
+let jnintfiOS = new JSNativeInterfaceIOS() 
+let jnintfAndroid = new JSNativeInterfaceAndroid() 
+let obj = new JSNativeInterfaceObject(jnintfiOS)
+obj.send("hoge", {"fuga": "nyassu"})

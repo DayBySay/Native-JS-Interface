@@ -1,18 +1,25 @@
-export class JSNativeInterface {
+interface JSNativeInterface {
+    send(name: string, params: Object): void
+}
+
+export class JSNativeInterfaceObject {
+    jsInterface: JSNativeInterfaceIOS
+
+    constructor(jnInterface: JSNativeInterfaceIOS) {
+        this.jsInterface = jnInterface
+    }
     send(name: string, params: Object) {
-        let ios = new JSNativeInterfaceIOS()
-        ios.send(name, params)
     }
 }
 
-class JSNativeInterfaceIOS {
+export class JSNativeInterfaceIOS implements JSNativeInterface {
     send(name: string, params: Object) {
         // @ts-ignore
         webkit.messageHandlers.NativeJSInterface.postMessage({name: params})
     }
 }
 
-class JSNativeInterfaceAndroid {
+export class JSNativeInterfaceAndroid implements JSNativeInterface {
     send(name: string, params: Object) {
         // @ts-ignore
         Android.showToast("hogehoge")
