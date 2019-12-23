@@ -1,5 +1,10 @@
 # Native-JS-Interface
 
+## アプリビルド（Web）
+```
+# make build
+```
+
 ## サーバ起動
 ```
 $ make serve
