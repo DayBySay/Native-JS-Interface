@@ -1,2 +1,2 @@
 serve:
-	npx http-server
+	$(MAKE) -C web
