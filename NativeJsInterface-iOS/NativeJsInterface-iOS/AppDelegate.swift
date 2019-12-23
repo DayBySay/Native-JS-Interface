@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  NativeJsInterface
+//  NativeJsInterface-iOS
 //
 //  Created by Takayuki Sei on 2019/12/20.
 //  Copyright © 2019 Takayuki Sei. All rights reserved.
