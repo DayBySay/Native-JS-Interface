@@ -14,10 +14,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val webView = findViewById<WebView>(R.id.web_view)
+        WebView.setWebContentsDebuggingEnabled(true)
         webView.webViewClient = WebViewClient()
         webView.settings.javaScriptEnabled = true
         webView.addJavascriptInterface(WebAppInterface(this), "WebAppInterface")
-        webView.loadUrl("http://10.172.40.71:8080")
+        webView.loadUrl("http://10.172.27.20:8080")
     }
 }
 

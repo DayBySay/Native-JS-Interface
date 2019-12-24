@@ -23,6 +23,6 @@ export class JSNativeInterfaceIOS implements JSNativeInterface {
 export class JSNativeInterfaceAndroid implements JSNativeInterface {
     postMessage(name: string, params: Object) {
         // @ts-ignore
-        WebAppInterface.postMessage({"name": name, "params" : params})
+        WebAppInterface.postMessage(JSON.stringify({"name": name, "params" : params}))
     }
 }
