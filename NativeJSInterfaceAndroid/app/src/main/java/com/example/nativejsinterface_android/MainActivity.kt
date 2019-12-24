@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-class WebAppInterface(private val context: Context) {
+class WebAppInterface(private val context: Context) { // JavascriptInterfaceを公開するとJSから色々操作出来るようになるので、セキュリティ面の検討が必要
     @JavascriptInterface
     fun postMessage(json: String) {
         Toast.makeText(context, json, Toast.LENGTH_SHORT).show()
