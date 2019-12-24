@@ -1,5 +1,5 @@
 interface JSNativeInterface {
-    send(name: string, params: Object): void
+    postMessage(name: string, params: Object): void
 }
 
 export class JSNativeInterfaceObject {
@@ -8,20 +8,21 @@ export class JSNativeInterfaceObject {
     constructor(jnInterface: JSNativeInterfaceIOS) {
         this.jsInterface = jnInterface
     }
-    send(name: string, params: Object) {
+    postMessage(name: string, params: Object) {
+        this.jsInterface.postMessage(name, params)
     }
 }
 
 export class JSNativeInterfaceIOS implements JSNativeInterface {
-    send(name: string, params: Object) {
+    postMessage(name: string, params: Object) {
         // @ts-ignore
-        webkit.messageHandlers.NativeJSInterface.postMessage({name: params})
+        webkit.messageHandlers.NativeJSInterface.postMessage({"name": name, "params" : params})
     }
 }
 
 export class JSNativeInterfaceAndroid implements JSNativeInterface {
-    send(name: string, params: Object) {
+    postMessage(name: string, params: Object) {
         // @ts-ignore
-        Android.showToast("hogehoge")
+        WebAppInterface.postMessage({"name": name, "params" : params})
     }
 }

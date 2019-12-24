@@ -3,13 +3,21 @@ import { JSNativeInterfaceObject, JSNativeInterfaceAndroid, JSNativeInterfaceIOS
 let ua = navigator.userAgent
 
 if (ua.indexOf("iPhone") !== -1) {
-    let jnintfiOS = new JSNativeInterfaceIOS() 
-    let obj = new JSNativeInterfaceObject(jnintfiOS)
-    obj.send("hoge", {"fuga": "nyassu"})
+    callIOS()
 }
 
 if (ua.indexOf("Android") !== -1) {
+    callAndroid()
+}
+
+function callIOS() {
+    let jnintfiOS = new JSNativeInterfaceIOS() 
+    let obj = new JSNativeInterfaceObject(jnintfiOS)
+    obj.postMessage("hoge", {"fuga": "nyassu"})
+}
+
+function callAndroid() {
     let jnintfAndroid = new JSNativeInterfaceAndroid() 
     let obj = new JSNativeInterfaceObject(jnintfAndroid)
-    obj.send("hoge", {"fuga": "nyassu"})
+    obj.postMessage("hoge", {"fuga": "nyassu"})
 }

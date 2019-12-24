@@ -16,14 +16,14 @@ class MainActivity : AppCompatActivity() {
         val webView = findViewById<WebView>(R.id.web_view)
         webView.webViewClient = WebViewClient()
         webView.settings.javaScriptEnabled = true
-        webView.addJavascriptInterface(WebAppInterface(this), "Android")
+        webView.addJavascriptInterface(WebAppInterface(this), "WebAppInterface")
         webView.loadUrl("http://10.172.40.71:8080")
     }
 }
 
 class WebAppInterface(private val context: Context) {
     @JavascriptInterface
-    fun showToast(toast: String) {
-        Toast.makeText(context, toast, Toast.LENGTH_SHORT).show()
+    fun postMessage(json: String) {
+        Toast.makeText(context, json, Toast.LENGTH_SHORT).show()
     }
 }
